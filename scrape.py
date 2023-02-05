@@ -5,6 +5,11 @@ from datetime import timedelta, datetime
 
 session = requests_cache.CachedSession(".cache", expire_after=timedelta(hours=24))
 
+try:
+    os.mkdir("data/")
+except FileExistsError:
+    pass
+
 print("Tento program je rozšiřován v naději, že bude užitečný, avšak BEZ JAKÉKOLIV ZÁRUKY. Neposkytují se ani odvozené záruky PRODEJNOSTI anebo VHODNOSTI PRO URČITÝ ÚČEL. Další podrobnosti hledejte v Obecné veřejné licenci GNU.")
 
 def downloadPDF(link, path, title):
